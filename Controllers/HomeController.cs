@@ -22,7 +22,7 @@ namespace MIS4200Team11.Controllers
 
         public ActionResult Contact()
         {
-            ViewBag.Message = "Your contact page.";
+            ViewBag.Message = "Centric Corporate";
 
             return View();
         }
