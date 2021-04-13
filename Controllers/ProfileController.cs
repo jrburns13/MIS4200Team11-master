@@ -19,6 +19,8 @@ namespace MIS4200Team11.Controllers
         // GET: Profile
         public ActionResult Index()
         {
+            var profiles = db.profile;
+            var sortedProfiles = profiles.OrderBy(r => r.lastName).ThenBy(r => r.firstName);
             return View(db.profile.ToList());
         }
 
