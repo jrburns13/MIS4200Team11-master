@@ -252,6 +252,7 @@
     <Content Include="Views\Recognitions\Details.cshtml" />
     <Content Include="Views\Recognitions\Edit.cshtml" />
     <Content Include="Views\Recognitions\Index.cshtml" />
+    <Content Include="Views\Profile\duplicateUser.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

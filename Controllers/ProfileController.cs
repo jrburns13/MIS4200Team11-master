@@ -57,7 +57,14 @@ namespace MIS4200Team11.Controllers
                 Guid.TryParse(User.Identity.GetUserId(), out memberID);
                 profile.profileId = memberID;
                 db.profile.Add(profile);
-                db.SaveChanges();
+                try 
+                {
+                    db.SaveChanges();
+                }
+                catch
+                {
+                    return View("duplicateUser");
+                }
                 return RedirectToAction("Index");
             }
 
