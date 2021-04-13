@@ -17,11 +17,17 @@ namespace MIS4200Team11.Controllers
         private Team11Context db = new Team11Context();
 
         // GET: Profile
-        public ActionResult Index()
+        public ActionResult Index(string searchString)
         {
-            var profiles = db.profile;
-            var sortedProfiles = profiles.OrderBy(r => r.lastName).ThenBy(r => r.firstName);
-            return View(db.profile.ToList());
+            // sort records
+            var profiles = from r in db.profile select r;
+            profiles = db.profile.OrderBy(r => r.lastName).ThenBy(r => r.firstName); ;
+            // check for a search
+            if(!String.IsNullOrEmpty(searchString))
+            {
+                profiles = profiles.Where(r => r.lastName.Contains(searchString) || r.firstName.Contains(searchString));
+            }
+            return View(profiles);
         }
 
         // GET: Profile/Details/5

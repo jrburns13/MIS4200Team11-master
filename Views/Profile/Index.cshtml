@@ -7,7 +7,14 @@
 <h2>Index</h2>
 
 
-<table class="table">
+@using (Html.BeginForm("Index", "Profile", FormMethod.Get))
+{
+    <p>
+        Find by name: @Html.TextBox("searchString")
+        <input type="submit" value="Search" />
+    </p>
+}
+<table class="table table-striped">
     <tr>
         <th>
             Last Name
@@ -27,7 +34,8 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
+@foreach (var item in Model)
+{
     <tr>
         <td>
             @Html.DisplayFor(modelItem => item.lastName)
@@ -46,7 +54,7 @@
         </td>
         <td>
             
-            @Html.ActionLink("Details", "Details", new { id=item.profileId }) |
+            @Html.ActionLink("Details", "Details", new { id = item.profileId }) 
             
         </td>
     </tr>
